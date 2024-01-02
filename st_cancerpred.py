@@ -11,11 +11,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-with open("C:\\Users\\Jane Imoke\\Desktop\\breast_cancer_pred\\assets\\style.css") as f:
+with open("assets/style.css") as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 def clean_data():
-    data = pd.read_csv("C:\\Users\\Jane Imoke\\Desktop\\breast_cancer_pred\\data.csv")
+    data = pd.read_csv("data.csv")
 
     data.drop(["Unnamed: 32", "id"], axis=1, inplace=True)
 
@@ -139,8 +139,8 @@ def get_scaled_values(input_dict):
     return scaled_dict
 	
 def add_predictions(input_data):
-	model = pkl.load(open("C:\\Users\\Jane Imoke\\Desktop\\breast_cancer_pred\\model.pkl", "rb"))
-	scaler = pkl.load(open("C:\\Users\\Jane Imoke\\Desktop\\breast_cancer_pred\\scaler.pkl", "rb"))
+	model = pkl.load(open("model.pkl", "rb"))
+	scaler = pkl.load(open("scaler.pkl", "rb"))
 	
 	input_array = np.array(list(input_data.values())).reshape(1, -1)
 	
